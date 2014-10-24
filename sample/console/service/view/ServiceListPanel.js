@@ -11,25 +11,25 @@ Ext.define("service.view.ServiceListPanel", {
     selType:'checkboxmodel',
     multiSelect:true,
     columns: [{
-        header: '服务ID',  dataIndex: 'serviceId', menuDisabled: true
+        header: '服务ID',  dataIndex: 'serviceId', align : 'center', menuDisabled: true
     }, {
-        header: '服务名称', dataIndex: 'name', menuDisabled: true
+        header: '服务名称', dataIndex: 'name', align : 'center', menuDisabled: true
     }, {
         header: '业务类型',  dataIndex: 'businessType', align : 'center', menuDisabled: true
     }, {
-        header: '服务描述', dataIndex: 'desc', menuDisabled: true
+        header: '服务描述', dataIndex: 'desc', align : 'center', menuDisabled: true
     }, {
-        header: '供应商', dataIndex: 'vendor', menuDisabled: true
+        header: '供应商', dataIndex: 'vendor', align : 'center', menuDisabled: true
     }, {
-        header: '服务状态', dataIndex: 'status', menuDisabled: true
+        header: '服务状态', dataIndex: 'status', align : 'center', menuDisabled: true
     }, {
         xtype : 'booleancolumn',
         header: '服务跟踪',  dataIndex: 'trace',
-        trueText : "已启用", falseText : "未启用", align : 'center'
+        trueText : "已启用", falseText : "未启用", align : 'center', menuDisabled: true
     }, {
         xtype : 'booleancolumn',
         header: '自启用',  dataIndex: 'trace',
-        trueText : "是", falseText : "否", align : 'center'
+        trueText : "是", falseText : "否", align : 'center', menuDisabled: true
     }, {
         text:'操作',
         align:'center',
@@ -38,10 +38,10 @@ Ext.define("service.view.ServiceListPanel", {
         renderer:function(value,metadata,record,rowIndex,colIndex,store){
             var servicdId = record.data.serviceId;
             var s="";
-            var start = "<a href='javascript:void(0)' >启动</a>&nbsp;&nbsp;&nbsp;";
-            var stop  = "<a href='javascript:void(0)' >停止</a>&nbsp;&nbsp;&nbsp;";
-            var suspend = "<a href='javascript:void(0)' >挂起</a>&nbsp;&nbsp;&nbsp;";
-            var resume = "<a href='javascript:void(0)' >恢复</a>&nbsp;&nbsp;&nbsp;";
+            var start = "<a href='javascript:void(0)' class='start-service'>启动</a>&nbsp;&nbsp;&nbsp;";
+            var stop  = "<a href='javascript:void(0)' class='stop-service'>停止</a>&nbsp;&nbsp;&nbsp;";
+            var suspend = "<a href='javascript:void(0)' class='suspend-service'>挂起</a>&nbsp;&nbsp;&nbsp;";
+            var resume = "<a href='javascript:void(0)' class='resume-service'>恢复</a>&nbsp;&nbsp;&nbsp;";
             if(record.data.status == 'Started' || record.data.status == 'Starting'){
                 s = s + stop + suspend;
             }
@@ -51,8 +51,8 @@ Ext.define("service.view.ServiceListPanel", {
             if(record.data.status == 'Suspended' || record.data.status == 'Suspending'){
                 s = s + resume;
             }
-            s = s+ "<a href='javascript:void(0)'>移除</a>&nbsp;&nbsp;&nbsp;";
-            s = s+ "<a href='javascript:void(0)'>查看</a>&nbsp;&nbsp;&nbsp;";
+            s = s+ "<a href='javascript:void(0)' class='remove-service'>移除</a>&nbsp;&nbsp;&nbsp;";
+            s = s+ "<a href='javascript:void(0)' class='view-service'>查看</a>&nbsp;&nbsp;&nbsp;";
             return s;
         }
     }],
@@ -65,7 +65,7 @@ Ext.define("service.view.ServiceListPanel", {
         text : "发布服务"
     }, '-', {
         xtype : "button",
-        text : "启用服务"
+        text : "启动服务"
     }, '-', {
         xtype : "button",
         text : "停止服务"
