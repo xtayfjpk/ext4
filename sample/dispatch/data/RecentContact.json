@@ -1,0 +1,19 @@
+{
+    "total" : 3,
+    "items" : [{
+        "id" : 1,
+        "username" : "zhangsan",
+        "viewName" : "张三",
+        "department" : "技术部"
+    }, {
+        "id" : 2,
+        "username" : "lisi",
+        "viewName" : "李四",
+        "department" : "销售部"
+    }, {
+        "id" : 3,
+        "username" : "wangwu",
+        "viewName" : "王五",
+        "department" : "运维部"
+    }]
+}

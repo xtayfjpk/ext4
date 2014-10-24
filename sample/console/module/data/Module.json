@@ -1,0 +1,25 @@
+{
+    "total" : 3,
+    "items" : [{
+        "id" : 1,
+        "name" : "服务管理",
+        "url" : "/app/service/manage.do",
+        "general" : false,
+        "weight" : 10,
+        "enabled" : true
+    }, {
+        "id" : 2,
+        "name" : "模块管理",
+        "url" : "/app/module/manage.do",
+        "general" : true,
+        "weight" : 9,
+        "enabled" : true
+    }, {
+        "id" : 3,
+        "name" : "节点管理",
+        "url" : "/app/node/manage.do",
+        "general" : true,
+        "weight" : 8,
+        "enabled" : true
+    }]
+}

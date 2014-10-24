@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>fckeditor测试</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <script type="text/javascript" src="/ext4/fckeditor/fckeditor.js"></script>
+    <script type="text/javascript">
+        window.onload = function() {
+            var oFCKeditor = new FCKeditor( 'content',810,350 ) ;
+            oFCKeditor.BasePath = "/ext4/fckeditor/"; //编辑器路径
+            oFCKeditor.ToolbarSet = 'Default'; //工具栏样式主题，经过测试其他的主题还要到fckconfig.js下去修改。
+            oFCKeditor.ReplaceTextarea() ;
+        };
+
+    </script>
+</head>
+<body>
+    <textarea id="content"></textarea>
+</body>
+</html>

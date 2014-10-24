@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>fckeditor测试</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <!--<script type="text/javascript" src="/ext4/ckeditor/ckeditor.js"></script>-->
+    <script type="text/javascript" src="/ext4/js-lib/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript">
+        window.onload = function() {
+            CKEDITOR.replace( 'content', {
+                //skin : 'office2003',
+                toolbar : "Full"
+            });
+        };
+
+    </script>
+</head>
+<body>
+    <textarea id="content"></textarea>
+</body>
+</html>

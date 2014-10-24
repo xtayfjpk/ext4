@@ -1,0 +1,48 @@
+{
+    "id":"root",
+    "leaf":false,
+    "name" : "root",
+    "children":[{
+        "id":"1",
+        "leaf":true,
+        "name" : "公安",
+        "code" : 452363214,
+        "ip" : "192.168.0.203",
+        "port" : 8080,
+        "desc" : "公安节点"
+    }, {
+        "id":"4",
+        "leaf":true,
+        "name" : "法院",
+        "code" : 452364587,
+        "ip" : "192.168.0.204",
+        "port" : null,
+        "desc" : "法院节点"
+    }, {
+        "id":"9",
+        "leaf":true,
+        "name" : "检查院",
+        "code" : 452312365,
+        "ip" : "192.168.0.205",
+        "port" : null,
+        "desc" : "检查院节点"
+    }, {
+        "id":"10",
+        "leaf":false,
+        "name" : "纪检委",
+        "code" : 45234596,
+        "ip" : "192.168.0.235",
+        "port" : null,
+        "desc" : "纪检委节点",
+        "expanded":true,
+        "children":[{
+            "id":"2",
+            "leaf":true,
+            "name" : "测试节点",
+            "code" : 45239658,
+            "ip" : "192.168.0.255",
+            "port" : null,
+            "desc" : "测试节点"
+        }]
+    }]
+}

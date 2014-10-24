@@ -1,0 +1,20 @@
+{
+    "total":4,
+    "items":[{
+        "name":"zhangsan",
+        "age":25,
+        "email":"zhangsan@qq.com"
+    }, {
+        "name":"lisi",
+        "age":28,
+        "email":"lisi@qq.com"
+    }, {
+        "name":"王五",
+        "age":20,
+        "email":"wangwu@qq.com"
+    }, {
+        "name":"赵六",
+        "age":30,
+        "email":"zhaoliu@qq.com"
+    }]
+}

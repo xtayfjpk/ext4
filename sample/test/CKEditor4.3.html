@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CKEditor4.3测试</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <script type="text/javascript" src="../../js-lib/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript">
+
+        window.onload = function(){
+            var editor = CKEDITOR.replace( 'content', {
+
+            });
+            editor.on("instanceReady", function(){
+               alert("xxx");
+            });
+            editor.on("focus", function(){
+                //alert("yyy");
+            });
+            editor.on("change", function(){
+                alert("change");
+            });
+        };
+
+
+    </script>
+    <style type="text/css">
+        .hand {
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <textarea name="content"></textarea>
+</body>
+</html>

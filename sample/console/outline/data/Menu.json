@@ -1,0 +1,52 @@
+{
+    "id":"0",
+    "text":"root",
+    "leaf":false,
+    "children":[{
+        "id":"1",
+        "text":"服务管理",
+        "leaf":false,
+        "children":[{
+            "id":"2",
+            "text":"公安",
+            "leaf":true,
+            "url":"http://www.baidu.com"
+        }, {
+            "id":"3",
+            "text":"法院",
+            "leaf":true,
+            "url":"http://www.baidu.com"
+        }, {
+            "id":"8",
+            "text":"检查院",
+            "leaf":true,
+            "url":"http://www.baidu.com"
+        }]
+    }, {
+        "id":"4",
+        "text":"Web服务",
+        "leaf":false,
+        "info" : "修改订单状态",
+        "children":[{
+            "id":"5",
+            "text" : "公安",
+            "leaf" :true,
+            "url":"http://www.baidu.com"
+        }, {
+            "id" :"6",
+            "text" : "检查院",
+            "leaf" : true,
+            "url":"/ext4/sample/lesson16/app/DeptView.html"
+        }]
+    }, {
+        "id":"9",
+        "text":"安全管理",
+        "leaf":true,
+        "info" : "修改订单状态"
+    }, {
+        "id":"10",
+        "text":"节点管理",
+        "leaf":true,
+        "info" : "修改订单状态"
+    }]
+}

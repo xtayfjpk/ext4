@@ -1,0 +1,67 @@
+
+body {
+    margin: 0;
+    padding: 0;
+}
+* {
+    font-family: Verdana,Geneva,sans-serif;
+    font-size: 12px;
+}
+.top-wrap {
+    background-image: url("../image/top-wrap-bg.png");
+    background-repeat: repeat-x;
+    height: 82px;
+    overflow: hidden;
+}
+.top-logo {
+    background-image: url("../image/top-logo.png");
+    background-repeat: no-repeat;
+    float: left;
+    height: 82px;
+    width: 413px;
+}
+.top-right {
+    background-image: url("../image/top-right-bg.png");
+    background-repeat: no-repeat;
+    float: right;
+    height: 82px;
+    width: 371px;
+    padding-right: 5px;
+}
+.top-right-div1 {
+    color: #fff;
+    height: 50px;
+    text-align: right;
+}
+.top-right-div1 a {
+    color: #fff;
+    text-decoration: none;
+}
+.top-right-div1 a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+div.top-right-user {
+   padding-top: 20px;
+}
+.top-right-div2 {
+    color: #84dff3;
+    text-align: right;
+}
+.top-right-div2 a {
+    color: #fff;
+    text-decoration: none;
+}
+.top-right-div2 a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+.top-icon-close {
+    background-image: url("../image/top-close.png");
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 14px;
+    margin-left: 30px;
+    margin-right: 2px;
+    width: 14px;
+}

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>发送材料</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="/ext4/extjs-4.1.1/resources/css/ext-all.css"/>
+    <script type="text/javascript" src="/ext4/extjs-4.1.1/ext-all.js"></script>
+    <script type="text/javascript" src="/ext4/extjs-4.1.1/locale/ext-lang-zh_CN.js"></script>
+
+    <link href="/ext4/plupload/js/jquery.plupload.queue/css/jquery.plupload.queue.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/ext4/plupload/jquery-1.5.1.min.js"></script>
+    <!-- Load plupload and all it's runtimes and finally the jQuery queue widget -->
+    <script type="text/javascript" src="/ext4/plupload/js/plupload.full.js"></script>
+    <script type="text/javascript" src="/ext4/plupload/js/plupload.flash.js"></script>
+    <script type="text/javascript" src="/ext4/plupload/js/jquery.plupload.queue/jquery.plupload.queue.js"></script>
+    <script type="text/javascript" src="/ext4/plupload/js/i18n/zh-CN.js"></script>
+
+    <script type="text/javascript">
+        Ext.onReady(function(){
+            //创建一个store
+            Ext.create('Ext.data.Store', {
+                storeId:'attachmentStore',
+                fields:['filename', 'size', 'phone'],
+                data:{'items':[
+                    { 'filename': '发送材料.png',  "size":"38Kb",  "phone":"555-111-1224"  },
+                    { 'filename': '上机说明.doc',  "size":"115Kb",  "phone":"555-222-1234" },
+                    { 'filename': '共享文件传输系统功能和界面设计.docx', "size":"693Kb",  "phone":"555-222-1244"  },
+                    { 'filename': '交换平台控制台权限管理模块设计.doc', "size":"432Kb", "phone":"555-222-1254"  }
+                ]},
+                proxy: {
+                    type: 'memory',
+                    reader: {
+                        type: 'json',
+                        root: 'items'
+                    }
+                }
+            });
+
+
+            //最外层为一个Panel使用column布局，第一列为一个Form
+            new Ext.panel.Panel({
+                renderTo:"form",
+                title:"发送材料",
+                layout:"column",
+                frame:true,
+                items:[{
+                    //第一列(表单)配置
+                    xtype:"form",
+                    columnWidth:0.7,
+                    layout:"form",
+                    frame:true,
+                    //表单字段的默认配置
+                    defaults:{
+                        labelAlign:"right",
+                        labelWidth:55
+                    },
+                    items:[{
+                        xtype:"textfield",
+                        fieldLabel:"收件人",
+                        name:"loginName",
+                        allowBlank:false,
+                        selectOnFocus:true
+
+                    }, {
+                        xtype:"textfield",
+                        fieldLabel:"标题",
+                        name:"title"
+                    }, {
+                        xtype:"htmleditor",
+                        fieldLabel:"正文",
+                        height:200,
+                        name:"content",
+                        fontFamilies:["宋体", "Arial", "Courier New", "Tahoma", "Times New Roman", "Verdana"]
+                    }, {
+                        xtype:'grid',
+                        title:'已添加附件',
+                        id:'attachmentGrid',
+
+                        store: Ext.data.StoreManager.lookup('attachmentStore'),
+                        columns: [
+                            Ext.create("Ext.grid.RowNumberer"),
+                            { header: '文件名称',  dataIndex: 'filename',width:300,menuDisabled:true },
+                            { header: '文件大小', dataIndex: 'size', flex: 1, menuDisabled:true },
+                            { header: 'Phone', dataIndex: 'phone', menuDisabled:true },
+                            { header: '删除', xtype:'actioncolumn', icon:'icon_edit.gif', handler:function(_grid,_rowIndex){
+                                Ext.data.StoreManager.lookup('attachmentStore').removeAt(_rowIndex);
+                            }, align:'center',tdCls:'hand',width:40}
+                        ]
+                        //height: 200,
+                        //width: 800,
+                        //frame:true
+                        //selType:'checkboxmodel',
+                        //multiSelect:true,
+                       // renderTo: Ext.getBody()
+                    }],
+                    buttons:[{
+                        text:"发送",
+                        handler:function() {
+                            //找到第一列表单
+                            this.ownerCt.ownerCt.getForm().submit();
+                        }
+                    }, {
+                        text:"清空输入"
+                    }, {
+                        text:"添加附件",
+                        handler:function(){
+                            $('#uploader').show();
+                        }
+                    }],
+
+
+                    //Basic配置
+                    url:"/struts2/plupload.do",
+                    method:"POST"
+                }, {
+                    //第二列配置
+                    //xtype:"recentcontactview"
+                }]
+
+
+
+
+            });
+
+
+        });
+
+    </script>
+
+
+    <script type="text/javascript">
+        // Convert divs to queue widgets when the DOM is ready
+        $().ready(function() {
+            $("#uploader").pluploadQueue({
+                runtimes : 'flash',
+                url : '/ext4/test/doupload.do',
+                max_file_size : '10mb',
+                chunk_size : '1mb',
+                unique_names : true,
+                browse_button : 'pickfiles',
+                file_data_name : 'files',
+                // 设置上传面版大小
+                resize : {width : 320, height : 240, quality : 90},
+
+                // 指定可选择的文件类型
+                filters : [
+                    {title : "Image files", extensions : "jpg,gif,png"},
+                    {title : "Zip files", extensions : "zip"}
+                ],
+                flash_swf_url : '/ext4/plupload/js/plupload.flash.swf'
+            });
+
+            var uploader = $('#uploader').pluploadQueue();
+            uploader.bind('FileUploaded', function(up, file, info){
+                console.info($.parseJSON(info.response));
+            });
+
+        });
+    </script>
+
+</head>
+<body>
+    <div id="form"></div>
+    <div id="uploader" style="display: none"></div>
+</body>
+</html>

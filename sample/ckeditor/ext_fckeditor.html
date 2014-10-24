@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>fckeditor测试</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="/ext4/extjs-4.1.1/resources/css/ext-all.css"/>
+    <script type="text/javascript" src="/ext4/extjs-4.1.1/bootstrap.js"></script>
+    <script type="text/javascript" src="/ext4/extjs-4.1.1/locale/ext-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="/ext4/fckeditor/fckeditor.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function(){
+
+            Ext.create("Ext.form.Panel", {
+                title : "ext4_fckeditor集成测试",
+                width : 1000,
+                height : 400,
+                renderTo : Ext.getBody(),
+                url : "/ext4/sample/fckeditor/test.json",
+                method : "POST",
+                items : [{
+                    xtype : "textarea",
+                    id : "content",
+                    width:800,
+                    height : 300
+                }],
+                tbar : [{
+                    xtype : "button",
+                    text : "测试",
+                    handler : function() {
+                        alert(document.getElementById("content"));
+                    }
+                }, {
+                    xtype : "button",
+                    text : "提交",
+                    handler : function() {
+                        this.ownerCt.ownerCt.getForm().submit({
+                            params: {
+                                content : FCKeditorAPI.GetInstance('content-inputEl').GetHTML()
+                            }
+                        });
+                    }
+                }, {
+                    xtype : "button",
+                    text : "测试",
+                    handler : function() {
+                        //console.info(oFCKeditor);
+                        var editor = FCKeditorAPI.GetInstance('content-inputEl');
+                        alert(editor.GetHTML());
+
+                    }
+                }]
+            });
+
+            var oFCKeditor = new FCKeditor( 'content-inputEl',810,350 ) ;
+            oFCKeditor.BasePath = "/ext4/fckeditor/"; //编辑器路径
+            oFCKeditor.ToolbarSet = 'Default'; //工具栏样式主题，经过测试其他的主题还要到fckconfig.js下去修改。
+            oFCKeditor.ReplaceTextarea() ;
+        });
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

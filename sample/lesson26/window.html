@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>window加载页面</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="/ext4/extjs-4.1.1/resources/css/ext-all.css"/>
+    <script type="text/javascript" src="/ext4/extjs-4.1.1/bootstrap.js"></script>
+    <script type="text/javascript" src="/ext4/extjs-4.1.1/locale/ext-lang-zh_CN.js"></script>
+    <script type="text/javascript" >
+        Ext.onReady(function(){
+            var _window = Ext.create("Ext.window.Window", {
+                title : "我的窗口",
+                width : 600,
+                height :400,
+                autoLoad : {
+                    url:"included.html",
+                    scripts:true
+                }
+            });
+
+            _window.show();
+
+        });
+
+
+    </script>
+
+</head>
+<body>
+    <div id="demo"></div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CKEditor4.3-ExtJS测试</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="/ext4/extjs-4.1.1/resources/css/ext-all.css"/>
+    <script type="text/javascript" src="/ext4/extjs-4.1.1/bootstrap.js"></script>
+    <script type="text/javascript" src="/ext4/extjs-4.1.1/locale/ext-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../js-lib/ckeditor-4.3-full/ckeditor.js"></script>
+    <script type="text/javascript" src="../../sample/ckeditor/CKEditor.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function() {
+            var panel = Ext.create("Ext.form.Panel", {
+                renderTo : Ext.getBody(),
+                height : 600,
+                frame : true,
+                width : 1000,
+                layout : "form",
+
+                items : [{
+                    xtype : "textfield",
+                    fieldLabel : "标题",
+                    //width : 1000,
+                    name : "title"
+                }, {
+                    xtype : "ckeditor",
+                    //width : 1000,
+                    name :"content",
+                    fieldLabel:"正文"
+                }],
+                tbar : [{
+                    xtype : "button",
+                    text : "获取内容",
+                    handler : function() {
+                        var editorField = this.ownerCt.ownerCt.query("ckeditor")[0];
+                        var editor = editorField.editor;
+                        alert(editor.getData());
+                        alert(editorField.getValue());
+                    }
+                }, {
+                    xtype : "button",
+                    text : "提交",
+                    handler : function() {
+                        this.ownerCt.ownerCt.getForm().submit();
+                    }
+                }],
+
+                url : "test.json",
+                method : "POST"
+            });
+        });
+
+    </script>
+    <style type="text/css">
+        .hand {
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+
+</body>
+</html>

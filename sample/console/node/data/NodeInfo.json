@@ -1,0 +1,13 @@
+{
+    "success" : true,
+    "data" : {
+        "parent.id" : 1,
+        "name" : "公安",
+        "code" : 452363214,
+        "ip" : "192.168.0.203",
+        "port" : 8080,
+        "desc" : "公安节点",
+        "jmxUrl" : ""
+    }
+
+}
